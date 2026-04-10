@@ -1,0 +1,22 @@
+2026-04-10 19:29:01,228 [INFO] __main__ — Pipeline started | flow=all | workers=8
+2026-04-10 19:29:01,228 [INFO] __main__ — Log file: ./logs\pipeline_20260410_142901.log
+2026-04-10 19:29:01,315 [INFO] db — DB connection pool initialised (min=2, max=12)
+2026-04-10 19:29:01,352 [INFO] __main__ — Schema check complete (tables ready).
+2026-04-10 19:29:01,352 [INFO] __main__ — Starting Flow A — Company CSV
+2026-04-10 19:29:01,352 [INFO] flow_company_csv — === Flow A — Company CSV ===
+2026-04-10 19:29:01,353 [INFO] flow_company_csv — Discovering CSV ZIPs from https://download.companieshouse.gov.uk/en_output.html
+2026-04-10 19:29:02,440 [INFO] flow_company_csv — Found 8 CSV ZIP(s)
+2026-04-10 19:29:02,446 [INFO] flow_company_csv — Already downloaded: BasicCompanyDataAsOneFile-2026-04-01.zip — skipping
+2026-04-10 19:29:02,448 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part1_7.zip — skipping
+2026-04-10 19:29:02,449 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part2_7.zip — skipping
+2026-04-10 19:29:02,451 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part3_7.zip — skipping
+2026-04-10 19:29:02,452 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part4_7.zip — skipping
+2026-04-10 19:29:02,453 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part5_7.zip — skipping
+2026-04-10 19:29:02,455 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part6_7.zip — skipping
+2026-04-10 19:29:02,456 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part7_7.zip — skipping
+2026-04-10 19:29:02,457 [INFO] flow_company_csv — Batch label: 2026-04 | ZIPs: 8
+2026-04-10 19:29:02,466 [WARNING] __main__ — Flow A skipped: Batch '2026-04' (company) is already completed (id=1). Use --force to reprocess.. Use --force to reprocess.
+2026-04-10 19:29:02,468 [INFO] __main__ — Starting Flow B — Accounts iXBRL
+2026-04-10 19:29:02,470 [INFO] flow_accounts — === Flow B — Accounts | batch: Feb-26 ===
+2026-04-10 19:29:02,473 [WARNING] __main__ — Flow B skipped: Batch 'Feb-26' (accounts) is already completed (id=2). Use --force to reprocess.. Use --force to reprocess.
+2026-04-10 19:29:02,474 [INFO] __main__ — Pipeline finished successfully.

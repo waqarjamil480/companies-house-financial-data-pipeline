@@ -1,0 +1,118 @@
+2026-04-10 17:57:56,699 [INFO] __main__ — Pipeline started | flow=all | workers=8
+2026-04-10 17:57:56,699 [INFO] __main__ — Log file: ./logs\pipeline_20260410_125756.log
+2026-04-10 17:57:56,770 [INFO] db — DB connection pool initialised (min=2, max=12)
+2026-04-10 17:57:56,810 [INFO] __main__ — Schema check complete (tables ready).
+2026-04-10 17:57:56,810 [INFO] __main__ — Starting Flow A — Company CSV
+2026-04-10 17:57:56,810 [INFO] flow_company_csv — === Flow A — Company CSV ===
+2026-04-10 17:57:56,811 [INFO] flow_company_csv — Discovering CSV ZIPs from https://download.companieshouse.gov.uk/en_output.html
+2026-04-10 17:57:58,233 [INFO] flow_company_csv — Found 8 CSV ZIP(s)
+2026-04-10 17:57:58,236 [INFO] flow_company_csv — Already downloaded: BasicCompanyDataAsOneFile-2026-04-01.zip — skipping
+2026-04-10 17:57:58,236 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part1_7.zip — skipping
+2026-04-10 17:57:58,237 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part2_7.zip — skipping
+2026-04-10 17:57:58,237 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part3_7.zip — skipping
+2026-04-10 17:57:58,238 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part4_7.zip — skipping
+2026-04-10 17:57:58,238 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part5_7.zip — skipping
+2026-04-10 17:57:58,238 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part6_7.zip — skipping
+2026-04-10 17:57:58,239 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part7_7.zip — skipping
+2026-04-10 17:57:58,239 [INFO] flow_company_csv — Batch label: 2026-04 | ZIPs: 8
+2026-04-10 17:57:58,242 [WARNING] __main__ — Flow A skipped: Batch '2026-04' (company) is already completed (id=1). Use --force to reprocess.. Use --force to reprocess.
+2026-04-10 17:57:58,242 [INFO] __main__ — Starting Flow B — Accounts iXBRL
+2026-04-10 17:57:58,243 [INFO] flow_accounts — === Flow B — Accounts | batch: Feb-26 ===
+2026-04-10 17:57:58,243 [INFO] flow_accounts — Batch tracking started: id=2
+2026-04-10 17:58:37,278 [INFO] flow_accounts — ZIP already downloaded and valid: ./data\accounts_zips\Accounts_Monthly_Data-February2026.zip — skipping download
+2026-04-10 17:58:37,279 [INFO] flow_accounts — Extracting ./data\accounts_zips\Accounts_Monthly_Data-February2026.zip → ./data\accounts_extracted\Feb_26
+2026-04-10 18:01:19,888 [INFO] flow_accounts — Extracted 258471 HTML files
+2026-04-10 18:01:19,976 [INFO] flow_accounts — Total files to process: 258471
+2026-04-10 18:03:12,256 [INFO] flow_accounts — Progress: 5000/258471 processed, 0 failed
+2026-04-10 18:05:01,964 [INFO] flow_accounts — Progress: 10000/258471 processed, 0 failed
+2026-04-10 18:06:20,894 [INFO] flow_accounts — Progress: 15000/258471 processed, 0 failed
+2026-04-10 18:07:22,401 [INFO] flow_accounts — Progress: 20000/258471 processed, 0 failed
+2026-04-10 18:08:47,914 [INFO] flow_accounts — Progress: 25000/258471 processed, 0 failed
+2026-04-10 18:10:03,073 [INFO] flow_accounts — Progress: 30000/258471 processed, 0 failed
+2026-04-10 18:11:00,039 [INFO] flow_accounts — Progress: 35000/258471 processed, 0 failed
+2026-04-10 18:11:58,683 [INFO] flow_accounts — Progress: 40000/258471 processed, 0 failed
+2026-04-10 18:13:16,110 [INFO] flow_accounts — Progress: 45000/258471 processed, 0 failed
+2026-04-10 18:14:33,594 [INFO] flow_accounts — Progress: 50000/258471 processed, 0 failed
+2026-04-10 18:15:28,659 [INFO] flow_accounts — Progress: 55000/258471 processed, 0 failed
+2026-04-10 18:16:21,356 [INFO] flow_accounts — Progress: 60000/258471 processed, 0 failed
+2026-04-10 18:17:26,895 [INFO] flow_accounts — Progress: 65000/258471 processed, 0 failed
+2026-04-10 18:18:03,837 [WARNING] flow_accounts — Parse failed: Prod224_2602_09320237_20250331.html — [Errno 22] Invalid argument
+2026-04-10 18:18:38,028 [INFO] flow_accounts — Progress: 70000/258471 processed, 1 failed
+2026-04-10 18:19:40,083 [INFO] flow_accounts — Progress: 75000/258471 processed, 1 failed
+2026-04-10 18:20:49,658 [INFO] flow_accounts — Progress: 80000/258471 processed, 1 failed
+2026-04-10 18:21:48,272 [INFO] flow_accounts — Progress: 85000/258471 processed, 1 failed
+2026-04-10 18:22:30,983 [WARNING] flow_accounts — Parse failed: Prod224_2602_10678222_20250531.html — time data '25-february--2026' does not match format '%d-%b-%y'
+2026-04-10 18:22:56,130 [INFO] flow_accounts — Progress: 90000/258471 processed, 2 failed
+2026-04-10 18:24:07,354 [INFO] flow_accounts — Progress: 95000/258471 processed, 2 failed
+2026-04-10 18:24:32,183 [WARNING] flow_accounts — Parse failed: Prod224_2602_11032605_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:25:16,430 [INFO] flow_accounts — Progress: 100000/258471 processed, 3 failed
+2026-04-10 18:26:16,415 [INFO] flow_accounts — Progress: 105000/258471 processed, 3 failed
+2026-04-10 18:26:18,329 [WARNING] flow_accounts — Parse failed: Prod224_2602_11384830_20250531.html — time data '20-february--2026' does not match format '%d-%b-%y'
+2026-04-10 18:27:29,518 [INFO] flow_accounts — Progress: 110000/258471 processed, 4 failed
+2026-04-10 18:28:37,008 [INFO] flow_accounts — Progress: 115000/258471 processed, 4 failed
+2026-04-10 18:29:22,239 [WARNING] flow_accounts — Parse failed: Prod224_2602_12012981_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:29:38,050 [INFO] flow_accounts — Progress: 120000/258471 processed, 5 failed
+2026-04-10 18:30:41,926 [INFO] flow_accounts — Progress: 125000/258471 processed, 5 failed
+2026-04-10 18:31:42,469 [INFO] flow_accounts — Progress: 130000/258471 processed, 5 failed
+2026-04-10 18:32:37,098 [INFO] flow_accounts — Progress: 135000/258471 processed, 5 failed
+2026-04-10 18:33:36,344 [INFO] flow_accounts — Progress: 140000/258471 processed, 5 failed
+2026-04-10 18:34:35,076 [INFO] flow_accounts — Progress: 145000/258471 processed, 5 failed
+2026-04-10 18:35:27,553 [INFO] flow_accounts — Progress: 150000/258471 processed, 5 failed
+2026-04-10 18:36:17,809 [INFO] flow_accounts — Progress: 155000/258471 processed, 5 failed
+2026-04-10 18:37:14,243 [INFO] flow_accounts — Progress: 160000/258471 processed, 5 failed
+2026-04-10 18:38:05,788 [INFO] flow_accounts — Progress: 165000/258471 processed, 5 failed
+2026-04-10 18:38:56,698 [INFO] flow_accounts — Progress: 170000/258471 processed, 5 failed
+2026-04-10 18:39:47,495 [INFO] flow_accounts — Progress: 175000/258471 processed, 5 failed
+2026-04-10 18:40:25,343 [WARNING] flow_accounts — Parse failed: Prod224_2602_14423635_20251031.html — [Errno 22] Invalid argument
+2026-04-10 18:45:00,226 [INFO] flow_accounts — Progress: 180000/258471 processed, 6 failed
+2026-04-10 18:45:05,442 [WARNING] flow_accounts — Parse failed: Prod224_2602_14576376_20260131.html — time data '05\xa0february\xa02026' does not match format '%d-%b-%y'
+2026-04-10 18:45:37,195 [INFO] flow_accounts — Progress: 185000/258471 processed, 7 failed
+2026-04-10 18:45:59,418 [WARNING] flow_accounts — Parse failed: Prod224_2602_14846931_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:46:14,512 [INFO] flow_accounts — Progress: 190000/258471 processed, 8 failed
+2026-04-10 18:46:52,824 [INFO] flow_accounts — Progress: 195000/258471 processed, 8 failed
+2026-04-10 18:47:33,231 [INFO] flow_accounts — Progress: 200000/258471 processed, 8 failed
+2026-04-10 18:48:17,250 [INFO] flow_accounts — Progress: 205000/258471 processed, 8 failed
+2026-04-10 18:49:15,947 [INFO] flow_accounts — Progress: 210000/258471 processed, 8 failed
+2026-04-10 18:49:23,174 [WARNING] flow_accounts — Parse failed: Prod224_2602_15526738_20250228.html — [Errno 22] Invalid argument
+2026-04-10 18:49:41,781 [WARNING] flow_accounts — Parse failed: Prod224_2602_15616551_20250331.html — [Errno 22] Invalid argument
+2026-04-10 18:49:54,358 [WARNING] flow_accounts — Parse failed: Prod224_2602_15659728_20250331.html — [Errno 22] Invalid argument
+2026-04-10 18:49:56,967 [WARNING] flow_accounts — Parse failed: Prod224_2602_15666051_20250430.html — [Errno 22] Invalid argument
+2026-04-10 18:50:02,993 [INFO] flow_accounts — Progress: 215000/258471 processed, 12 failed
+2026-04-10 18:50:07,769 [WARNING] flow_accounts — Parse failed: Prod224_2602_15699144_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:50:13,252 [WARNING] flow_accounts — Parse failed: Prod224_2602_15704573_20251031.html — [Errno 22] Invalid argument
+2026-04-10 18:50:51,355 [INFO] flow_accounts — Progress: 220000/258471 processed, 14 failed
+2026-04-10 18:50:54,912 [WARNING] flow_accounts — Parse failed: Prod224_2602_15725353_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:50:55,838 [WARNING] flow_accounts — Parse failed: Prod224_2602_15725833_20250831.html — [Errno 22] Invalid argument
+2026-04-10 18:51:01,261 [WARNING] flow_accounts — Parse failed: Prod224_2602_15728257_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:51:12,304 [WARNING] flow_accounts — Parse failed: Prod224_2602_15733362_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:51:26,561 [WARNING] flow_accounts — Parse failed: Prod224_2602_15739605_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:51:27,666 [WARNING] flow_accounts — Parse failed: Prod224_2602_15740381_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:51:41,082 [INFO] flow_accounts — Progress: 225000/258471 processed, 20 failed
+2026-04-10 18:51:43,195 [WARNING] flow_accounts — Parse failed: Prod224_2602_15746861_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:51:45,020 [WARNING] flow_accounts — Parse failed: Prod224_2602_15747696_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:51:55,565 [WARNING] flow_accounts — Parse failed: Prod224_2602_15752359_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:52:04,512 [WARNING] flow_accounts — Parse failed: Prod224_2602_15757000_20250630.html — [Errno 22] Invalid argument
+2026-04-10 18:52:28,399 [INFO] flow_accounts — Progress: 230000/258471 processed, 24 failed
+2026-04-10 18:52:35,974 [WARNING] flow_accounts — Parse failed: Prod224_2602_15803662_20250630.html — [Errno 22] Invalid argument
+2026-04-10 18:52:39,267 [WARNING] flow_accounts — Parse failed: Prod224_2602_15811641_20251231.html — [Errno 22] Invalid argument
+2026-04-10 18:52:57,564 [WARNING] flow_accounts — Parse failed: Prod224_2602_15898265_20250831.html — [Errno 22] Invalid argument
+2026-04-10 18:53:09,190 [WARNING] flow_accounts — Parse failed: Prod224_2602_15966880_20250930.html — [Errno 22] Invalid argument
+2026-04-10 18:53:13,489 [INFO] flow_accounts — Progress: 235000/258471 processed, 28 failed
+2026-04-10 18:53:24,929 [WARNING] flow_accounts — Parse failed: Prod224_2602_16056604_20251031.html — [Errno 22] Invalid argument
+2026-04-10 18:53:31,613 [WARNING] flow_accounts — Parse failed: Prod224_2602_16096062_20251130.html — [Errno 22] Invalid argument
+2026-04-10 18:53:42,044 [WARNING] flow_accounts — Parse failed: Prod224_2602_16163818_20260131.html — [Errno 22] Invalid argument
+2026-04-10 18:53:51,389 [INFO] flow_accounts — Progress: 240000/258471 processed, 31 failed
+2026-04-10 18:53:55,126 [WARNING] flow_accounts — Parse failed: Prod224_2602_16637056_20251231.html — time data '31\xa0december\xa02025' does not match format '%d-%b-%y'
+2026-04-10 18:54:55,834 [INFO] flow_accounts — Progress: 245000/258471 processed, 32 failed
+2026-04-10 18:55:03,487 [WARNING] flow_accounts — Parse failed: Prod224_2602_OC442353_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:55:05,141 [WARNING] flow_accounts — Parse failed: Prod224_2602_OC450913_20250331.html — [Errno 22] Invalid argument
+2026-04-10 18:56:04,438 [WARNING] flow_accounts — Parse failed: Prod224_2602_SC400254_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:56:33,338 [INFO] flow_accounts — Progress: 250000/258471 processed, 35 failed
+2026-04-10 18:57:44,337 [INFO] flow_accounts — Progress: 255000/258471 processed, 35 failed
+2026-04-10 18:58:07,364 [WARNING] flow_accounts — Parse failed: Prod224_2602_SC810455_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:58:11,497 [WARNING] flow_accounts — Parse failed: Prod224_2602_SC812079_20250531.html — [Errno 22] Invalid argument
+2026-04-10 18:58:19,877 [INFO] flow_accounts — Cleaning up extracted HTML files in ./data\accounts_extracted\Feb_26
+2026-04-10 18:59:09,028 [INFO] flow_accounts — Cleanup complete — ZIP retained at ./data\accounts_zips\Accounts_Monthly_Data-February2026.zip
+2026-04-10 18:59:09,030 [INFO] flow_accounts — Failed files (37) logged to: ./logs\failed_accounts_20260410_125758.log
+2026-04-10 18:59:09,036 [INFO] flow_accounts — === Flow B complete | processed=258434 failed=37 rows=5953390 ===
+2026-04-10 18:59:09,056 [INFO] __main__ — Pipeline finished successfully.

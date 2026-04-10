@@ -1,0 +1,91 @@
+2026-04-10 17:40:10,366 [INFO] __main__ — Pipeline started | flow=all | workers=8
+2026-04-10 17:40:10,366 [INFO] __main__ — Log file: ./logs\pipeline_20260410_124010.log
+2026-04-10 17:40:10,572 [INFO] db — DB connection pool initialised (min=2, max=12)
+2026-04-10 17:40:11,624 [INFO] __main__ — Schema check complete (tables ready).
+2026-04-10 17:40:11,624 [INFO] __main__ — Starting Flow A — Company CSV
+2026-04-10 17:40:11,624 [INFO] flow_company_csv — === Flow A — Company CSV ===
+2026-04-10 17:40:11,625 [INFO] flow_company_csv — Discovering CSV ZIPs from https://download.companieshouse.gov.uk/en_output.html
+2026-04-10 17:40:12,971 [INFO] flow_company_csv — Found 8 CSV ZIP(s)
+2026-04-10 17:40:12,974 [INFO] flow_company_csv — Already downloaded: BasicCompanyDataAsOneFile-2026-04-01.zip — skipping
+2026-04-10 17:40:12,975 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part1_7.zip — skipping
+2026-04-10 17:40:12,975 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part2_7.zip — skipping
+2026-04-10 17:40:12,976 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part3_7.zip — skipping
+2026-04-10 17:40:12,976 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part4_7.zip — skipping
+2026-04-10 17:40:12,977 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part5_7.zip — skipping
+2026-04-10 17:40:12,977 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part6_7.zip — skipping
+2026-04-10 17:40:12,978 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part7_7.zip — skipping
+2026-04-10 17:40:12,978 [INFO] flow_company_csv — Batch label: 2026-04 | ZIPs: 8
+2026-04-10 17:40:12,981 [WARNING] __main__ — Flow A skipped: Batch '2026-04' (company) is already completed (id=1). Use --force to reprocess.. Use --force to reprocess.
+2026-04-10 17:40:12,982 [INFO] __main__ — Starting Flow B — Accounts iXBRL
+2026-04-10 17:40:12,982 [INFO] flow_accounts — === Flow B — Accounts | batch: Feb-26 ===
+2026-04-10 17:40:12,983 [INFO] flow_accounts — Batch tracking started: id=2
+2026-04-10 17:40:12,983 [INFO] flow_accounts — Downloading https://download.companieshouse.gov.uk/Accounts_Monthly_Data-February2026.zip → ./data\accounts_zips\Accounts_Monthly_Data-February2026.zip
+2026-04-10 17:52:31,547 [INFO] flow_accounts — Download complete and verified: ./data\accounts_zips\Accounts_Monthly_Data-February2026.zip
+2026-04-10 17:52:31,549 [INFO] flow_accounts — Extracting ./data\accounts_zips\Accounts_Monthly_Data-February2026.zip → ./data\accounts_extracted\Feb_26
+2026-04-10 17:55:10,378 [INFO] flow_accounts — Extracted 258471 HTML files
+2026-04-10 17:55:10,484 [INFO] flow_accounts — Total files to process: 258471
+2026-04-10 17:55:13,392 [ERROR] flow_accounts — Flow B failed: ON CONFLICT DO UPDATE command cannot affect row a second time
+HINT:  Ensure that no rows proposed for insertion within the same command have duplicate constrained values.
+Traceback (most recent call last):
+  File "E:\de\blueknight task\companies_house_financial\flow_accounts.py", line 248, in run
+    _maybe_flush()
+    ~~~~~~~~~~~~^^
+  File "E:\de\blueknight task\companies_house_financial\flow_accounts.py", line 220, in _maybe_flush
+    rows_inserted += _flush_to_db(
+                     ~~~~~~~~~~~~^
+        conn, buf_financials, buf_directors, buf_reports, buf_metadata
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\de\blueknight task\companies_house_financial\flow_accounts.py", line 154, in _flush_to_db
+    total += db.upsert_metadata(conn, metadata)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\de\blueknight task\companies_house_financial\db.py", line 287, in upsert_metadata
+    return _execute_values(conn, METADATA_UPSERT, tuples)
+  File "E:\de\blueknight task\companies_house_financial\db.py", line 65, in _execute_values
+    psycopg2.extras.execute_values(cur, sql, chunk, page_size=BATCH_SIZE)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python313\site-packages\psycopg2\extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+psycopg2.errors.CardinalityViolation: ON CONFLICT DO UPDATE command cannot affect row a second time
+HINT:  Ensure that no rows proposed for insertion within the same command have duplicate constrained values.
+
+2026-04-10 17:55:13,400 [ERROR] __main__ — Pipeline failed: ON CONFLICT DO UPDATE command cannot affect row a second time
+HINT:  Ensure that no rows proposed for insertion within the same command have duplicate constrained values.
+Traceback (most recent call last):
+  File "E:\de\blueknight task\companies_house_financial\run_pipeline.py", line 166, in main
+    flow_accounts.run(
+    ~~~~~~~~~~~~~~~~~^
+        skip_download=args.skip_download,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        workers=args.workers,
+        ^^^^^^^^^^^^^^^^^^^^^
+        failed_log_path=failed_log,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\de\blueknight task\companies_house_financial\flow_accounts.py", line 248, in run
+    _maybe_flush()
+    ~~~~~~~~~~~~^^
+  File "E:\de\blueknight task\companies_house_financial\flow_accounts.py", line 220, in _maybe_flush
+    rows_inserted += _flush_to_db(
+                     ~~~~~~~~~~~~^
+        conn, buf_financials, buf_directors, buf_reports, buf_metadata
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\de\blueknight task\companies_house_financial\flow_accounts.py", line 154, in _flush_to_db
+    total += db.upsert_metadata(conn, metadata)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "E:\de\blueknight task\companies_house_financial\db.py", line 287, in upsert_metadata
+    return _execute_values(conn, METADATA_UPSERT, tuples)
+  File "E:\de\blueknight task\companies_house_financial\db.py", line 65, in _execute_values
+    psycopg2.extras.execute_values(cur, sql, chunk, page_size=BATCH_SIZE)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\User\AppData\Roaming\Python\Python313\site-packages\psycopg2\extras.py", line 1299, in execute_values
+    cur.execute(b''.join(parts))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+psycopg2.errors.CardinalityViolation: ON CONFLICT DO UPDATE command cannot affect row a second time
+HINT:  Ensure that no rows proposed for insertion within the same command have duplicate constrained values.
+

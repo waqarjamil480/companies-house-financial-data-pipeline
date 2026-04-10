@@ -1,0 +1,60 @@
+2026-04-10 17:35:40,263 [INFO] __main__ — Pipeline started | flow=all | workers=8
+2026-04-10 17:35:40,263 [INFO] __main__ — Log file: ./logs\pipeline_20260410_123540.log
+2026-04-10 17:35:40,341 [INFO] db — DB connection pool initialised (min=2, max=12)
+2026-04-10 17:35:41,390 [INFO] __main__ — Schema check complete (tables ready).
+2026-04-10 17:35:41,390 [INFO] __main__ — Starting Flow A — Company CSV
+2026-04-10 17:35:41,390 [INFO] flow_company_csv — === Flow A — Company CSV ===
+2026-04-10 17:35:41,390 [INFO] flow_company_csv — Discovering CSV ZIPs from https://download.companieshouse.gov.uk/en_output.html
+2026-04-10 17:35:42,417 [INFO] flow_company_csv — Found 8 CSV ZIP(s)
+2026-04-10 17:35:42,422 [INFO] flow_company_csv — Already downloaded: BasicCompanyDataAsOneFile-2026-04-01.zip — skipping
+2026-04-10 17:35:42,423 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part1_7.zip — skipping
+2026-04-10 17:35:42,424 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part2_7.zip — skipping
+2026-04-10 17:35:42,425 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part3_7.zip — skipping
+2026-04-10 17:35:42,425 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part4_7.zip — skipping
+2026-04-10 17:35:42,426 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part5_7.zip — skipping
+2026-04-10 17:35:42,426 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part6_7.zip — skipping
+2026-04-10 17:35:42,426 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part7_7.zip — skipping
+2026-04-10 17:35:42,427 [INFO] flow_company_csv — Batch label: 2026-04 | ZIPs: 8
+2026-04-10 17:35:42,434 [WARNING] __main__ — Flow A skipped: Batch '2026-04' (company) is already completed (id=1). Use --force to reprocess.. Use --force to reprocess.
+2026-04-10 17:35:42,434 [INFO] __main__ — Starting Flow B — Accounts iXBRL
+2026-04-10 17:35:42,434 [INFO] flow_accounts — === Flow B — Accounts | batch: Feb-26 ===
+2026-04-10 17:35:42,435 [INFO] flow_accounts — Batch tracking started: id=2
+2026-04-10 17:35:42,436 [INFO] flow_accounts — ZIP already downloaded: ./data\accounts_zips\Accounts_Monthly_Data-February2026.zip — skipping download
+2026-04-10 17:35:42,436 [INFO] flow_accounts — Extracting ./data\accounts_zips\Accounts_Monthly_Data-February2026.zip → ./data\accounts_extracted\Feb_26
+2026-04-10 17:35:42,446 [ERROR] flow_accounts — Flow B failed: File is not a zip file
+Traceback (most recent call last):
+  File "E:\de\blueknight task\companies_house_financial\flow_accounts.py", line 173, in run
+    html_paths = _extract_zip(zip_path, extract_dir)
+  File "E:\de\blueknight task\companies_house_financial\flow_accounts.py", line 86, in _extract_zip
+    with zipfile.ZipFile(zip_path, "r") as zf:
+         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\zipfile\__init__.py", line 1385, in __init__
+    self._RealGetContents()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python313\Lib\zipfile\__init__.py", line 1452, in _RealGetContents
+    raise BadZipFile("File is not a zip file")
+zipfile.BadZipFile: File is not a zip file
+2026-04-10 17:35:42,484 [ERROR] __main__ — Pipeline failed: File is not a zip file
+Traceback (most recent call last):
+  File "E:\de\blueknight task\companies_house_financial\run_pipeline.py", line 166, in main
+    flow_accounts.run(
+    ~~~~~~~~~~~~~~~~~^
+        skip_download=args.skip_download,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        workers=args.workers,
+        ^^^^^^^^^^^^^^^^^^^^^
+        failed_log_path=failed_log,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "E:\de\blueknight task\companies_house_financial\flow_accounts.py", line 173, in run
+    html_paths = _extract_zip(zip_path, extract_dir)
+  File "E:\de\blueknight task\companies_house_financial\flow_accounts.py", line 86, in _extract_zip
+    with zipfile.ZipFile(zip_path, "r") as zf:
+         ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python313\Lib\zipfile\__init__.py", line 1385, in __init__
+    self._RealGetContents()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Program Files\Python313\Lib\zipfile\__init__.py", line 1452, in _RealGetContents
+    raise BadZipFile("File is not a zip file")
+zipfile.BadZipFile: File is not a zip file

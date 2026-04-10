@@ -1,0 +1,39 @@
+2026-04-10 16:45:38,090 [INFO] __main__ — Pipeline started | flow=all | workers=8
+2026-04-10 16:45:38,090 [INFO] __main__ — Log file: ./logs\pipeline_20260410_114538.log
+2026-04-10 16:45:38,169 [INFO] db — DB connection pool initialised (min=2, max=12)
+2026-04-10 16:45:38,169 [INFO] __main__ — Starting Flow A — Company CSV
+2026-04-10 16:45:38,169 [INFO] flow_company_csv — === Flow A — Company CSV ===
+2026-04-10 16:45:38,170 [INFO] flow_company_csv — Discovering CSV ZIPs from https://download.companieshouse.gov.uk/en_output.html
+2026-04-10 16:45:39,368 [INFO] flow_company_csv — Found 8 CSV ZIP(s)
+2026-04-10 16:45:39,371 [INFO] flow_company_csv — Downloading https://download.companieshouse.gov.uk/BasicCompanyDataAsOneFile-2026-04-01.zip
+2026-04-10 16:48:36,978 [INFO] flow_company_csv — Downloading https://download.companieshouse.gov.uk/BasicCompanyData-2026-04-01-part1_7.zip
+2026-04-10 16:49:04,567 [INFO] flow_company_csv — Downloading https://download.companieshouse.gov.uk/BasicCompanyData-2026-04-01-part2_7.zip
+2026-04-10 16:49:34,471 [INFO] flow_company_csv — Downloading https://download.companieshouse.gov.uk/BasicCompanyData-2026-04-01-part3_7.zip
+2026-04-10 16:50:08,705 [INFO] flow_company_csv — Downloading https://download.companieshouse.gov.uk/BasicCompanyData-2026-04-01-part4_7.zip
+2026-04-10 16:50:35,785 [INFO] flow_company_csv — Downloading https://download.companieshouse.gov.uk/BasicCompanyData-2026-04-01-part5_7.zip
+2026-04-10 16:51:01,068 [INFO] flow_company_csv — Downloading https://download.companieshouse.gov.uk/BasicCompanyData-2026-04-01-part6_7.zip
+2026-04-10 16:51:26,410 [INFO] flow_company_csv — Downloading https://download.companieshouse.gov.uk/BasicCompanyData-2026-04-01-part7_7.zip
+2026-04-10 16:51:44,592 [INFO] flow_company_csv — Batch label: 2026-04 | ZIPs: 8
+2026-04-10 16:51:44,594 [ERROR] __main__ — Pipeline failed: relation "pipeline_batches" does not exist
+LINE 2:             SELECT id, status FROM pipeline_batches
+                                           ^
+Traceback (most recent call last):
+  File "E:\de\blueknight task\companies_house_financial\run_pipeline.py", line 127, in main
+    flow_company_csv.run(local_zip_dir=args.local_csv_dir)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\de\blueknight task\companies_house_financial\flow_company_csv.py", line 226, in run
+    batch_id = db.start_batch(conn, "company", batch_label, source_names)
+  File "E:\de\blueknight task\companies_house_financial\db.py", line 300, in start_batch
+    cur.execute(
+    ~~~~~~~~~~~^
+        """
+        ^^^
+    ...<3 lines>...
+        (batch_type, batch_label),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+psycopg2.errors.UndefinedTable: relation "pipeline_batches" does not exist
+LINE 2:             SELECT id, status FROM pipeline_batches
+                                           ^
+

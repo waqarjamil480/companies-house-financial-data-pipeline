@@ -1,0 +1,31 @@
+2026-04-10 17:01:58,522 [INFO] __main__ — Pipeline started | flow=all | workers=8
+2026-04-10 17:01:58,522 [INFO] __main__ — Log file: ./logs\pipeline_20260410_120158.log
+2026-04-10 17:01:58,709 [INFO] db — DB connection pool initialised (min=2, max=12)
+2026-04-10 17:01:58,809 [INFO] __main__ — Schema check complete (tables ready).
+2026-04-10 17:01:58,809 [INFO] __main__ — Starting Flow A — Company CSV
+2026-04-10 17:01:58,809 [INFO] flow_company_csv — === Flow A — Company CSV ===
+2026-04-10 17:01:58,810 [INFO] flow_company_csv — Discovering CSV ZIPs from https://download.companieshouse.gov.uk/en_output.html
+2026-04-10 17:01:59,975 [INFO] flow_company_csv — Found 8 CSV ZIP(s)
+2026-04-10 17:01:59,977 [INFO] flow_company_csv — Already downloaded: BasicCompanyDataAsOneFile-2026-04-01.zip — skipping
+2026-04-10 17:01:59,978 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part1_7.zip — skipping
+2026-04-10 17:01:59,978 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part2_7.zip — skipping
+2026-04-10 17:01:59,978 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part3_7.zip — skipping
+2026-04-10 17:01:59,979 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part4_7.zip — skipping
+2026-04-10 17:01:59,979 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part5_7.zip — skipping
+2026-04-10 17:01:59,979 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part6_7.zip — skipping
+2026-04-10 17:01:59,980 [INFO] flow_company_csv — Already downloaded: BasicCompanyData-2026-04-01-part7_7.zip — skipping
+2026-04-10 17:01:59,980 [INFO] flow_company_csv — Batch label: 2026-04 | ZIPs: 8
+2026-04-10 17:01:59,995 [INFO] flow_company_csv — Reading ./data\company_csv\BasicCompanyDataAsOneFile-2026-04-01.zip / BasicCompanyDataAsOneFile-2026-04-01.csv
+2026-04-10 17:14:41,452 [INFO] flow_company_csv — Reading ./data\company_csv\BasicCompanyData-2026-04-01-part1_7.zip / BasicCompanyData-2026-04-01-part1_7.csv
+2026-04-10 17:17:04,989 [INFO] flow_company_csv — Reading ./data\company_csv\BasicCompanyData-2026-04-01-part2_7.zip / BasicCompanyData-2026-04-01-part2_7.csv
+2026-04-10 17:19:25,714 [INFO] flow_company_csv — Reading ./data\company_csv\BasicCompanyData-2026-04-01-part3_7.zip / BasicCompanyData-2026-04-01-part3_7.csv
+2026-04-10 17:21:52,967 [INFO] flow_company_csv — Reading ./data\company_csv\BasicCompanyData-2026-04-01-part4_7.zip / BasicCompanyData-2026-04-01-part4_7.csv
+2026-04-10 17:24:21,323 [INFO] flow_company_csv — Reading ./data\company_csv\BasicCompanyData-2026-04-01-part5_7.zip / BasicCompanyData-2026-04-01-part5_7.csv
+2026-04-10 17:26:50,987 [INFO] flow_company_csv — Reading ./data\company_csv\BasicCompanyData-2026-04-01-part6_7.zip / BasicCompanyData-2026-04-01-part6_7.csv
+2026-04-10 17:29:21,110 [INFO] flow_company_csv — Reading ./data\company_csv\BasicCompanyData-2026-04-01-part7_7.zip / BasicCompanyData-2026-04-01-part7_7.csv
+2026-04-10 17:31:07,863 [INFO] flow_company_csv — === Flow A complete | rows upserted: 11392884 ===
+2026-04-10 17:31:07,863 [INFO] __main__ — Starting Flow B — Accounts iXBRL
+2026-04-10 17:31:07,863 [INFO] flow_accounts — === Flow B — Accounts | batch: Feb-26 ===
+2026-04-10 17:31:07,865 [INFO] flow_accounts — Batch tracking started: id=2
+2026-04-10 17:31:07,866 [INFO] flow_accounts — Downloading https://download.companieshouse.gov.uk/Accounts_Monthly_Data-February2026.zip → ./data\accounts_zips\Accounts_Monthly_Data-February2026.zip
+2026-04-10 17:35:15,980 [WARNING] __main__ — Pipeline interrupted by user.
