@@ -1,0 +1,19 @@
+.env
+# Python
+*.python-version
+
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+*.zip
+
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
